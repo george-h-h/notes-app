@@ -19,4 +19,9 @@ describe("notesModel", () => {
     expect(notesModel.notes).toEqual(['Buy Milk']);
   }); 
 
+  it('should reset notes to an empty array', () => {
+    notesModel.addNote('Buy Milk');
+    notesModel.reset();
+    expect(notesModel.notes).toEqual([]);
+  });
 });
