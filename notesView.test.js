@@ -10,10 +10,15 @@ describe("Notes View", () => {
   it("can add dynamic notes", () => {
     document.body.innerHTML = fs.readFileSync("./index.html");
     const model = new NotesModel();
-    model.addNote("Learning DOM");
-    model.addNote("Learning JS");
     const view = new NotesView(model);
+
+    const buttonEl = document.querySelector("#add-note-button");
+    const inputEl = document.querySelector("#user-note");
+
+    inputEl.value = "Learning DOM";
+    buttonEl.click();
     view.displayNotes();
-    expect(document.querySelectorAll("div.note").length).toBe(2);
+
+    expect(document.querySelector("#note").innerText).toBe("Learning Dom");
   });
 });
