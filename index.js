@@ -5,7 +5,7 @@ const NotesView = require("./notesView");
 const notesModel = new NotesModel();
 const notesView = new NotesView(notesModel);
 
-notesModel.addNote("Go to sleep");
-notesModel.addNote("Stop working so hard");
+// notesModel.addNote("Go to sleep");
+// notesModel.addNote("Stop working so hard");
 
-notesView.displayNotes();
+// notesView.displayNotes();
