@@ -17,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/george-h-h/notes-app/issues"
   },
-  "homepage": "https://github.com/george-h-h/notes-app#readme"
+  "homepage": "https://github.com/george-h-h/notes-app#readme",
+  "dependencies": {
+    "jest-fetch-mock": "^3.0.3"
+  }
 }

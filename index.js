@@ -1,11 +1,13 @@
 const NotesModel = require("./notesModel");
 const NotesView = require("./notesView");
-// console.log("Notes app is working!");
+const NotesApi = require('./notesApi')
 
 const notesModel = new NotesModel();
 const notesView = new NotesView(notesModel);
 
-// notesModel.addNote("Go to sleep");
-// notesModel.addNote("Stop working so hard");
+const api = new NotesApi();
 
-// notesView.displayNotes();
+api.loadNotes((notes) => {
+  notesModel.addNote(notes);
+  notesView.displayNotes();
+});
