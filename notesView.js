@@ -8,6 +8,7 @@ class NotesView {
     this.input = document.querySelector("#note");
     this.buttonEl.addEventListener('click', () => {
       this.notesModel.addNote(this.input.value);
+      this.input.value = "";
       this.displayNotes();
     });
   }
