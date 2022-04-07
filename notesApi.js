@@ -7,11 +7,24 @@ class NotesApi {
   }
 
   // Async await option:
-  // async loadNotes(callback) {
+  // async loadNotes() {
   //   const response = await fetch('http://localhost:3000/notes');
   //   const data = await response.json();
-  //   callback(data);
+  //   return data;
   // }
+
+ createNote(dataNote, callback) {
+    fetch('http://localhost:3000/notes', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({'content': dataNote}), 
+    })
+    .then(response => response.json())
+    .then(data => { callback(data)
+    });
+  }
 }
 
 

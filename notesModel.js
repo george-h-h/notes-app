@@ -16,9 +16,11 @@ class NotesModel {
     this.notes = [];
   }
 
-  // setNotes(note) {
-  //   this.notes.push(note);
-  // }
+  setNotes(notes) {
+    notes.forEach((note) => {
+      this.notes.push(note);
+    })
+  }
 }
 
 module.exports = NotesModel

@@ -1,15 +1,21 @@
-// const notesModel = require("./notesModel");
+const NotesApi = require("./notesApi");
+const NotesModel = require("./notesModel");
 
 class NotesView {
-  constructor(notesModel) {
+  constructor(notesModel = new NotesModel(), notesApi = new NotesApi()) {
     this.notesModel = notesModel;
+    this.notesApi = notesApi;
     this.mainContainer = document.querySelector("#main-container");
     this.buttonEl = document.querySelector(".add-note");
     this.input = document.querySelector("#note");
     this.buttonEl.addEventListener('click', () => {
-      this.notesModel.addNote(this.input.value);
-      this.input.value = "";
-      this.displayNotes();
+    this.notesModel.addNote(this.input.value);
+      this.notesApi.createNote(this.input.value, (note) => {
+        console.log(note);
+      });
+    this.input.value = "";
+    this.displayNotes();
+
     });
   }
 
@@ -25,7 +31,6 @@ class NotesView {
       this.mainContainer.append(div);
     });
   }
-
 }
 
 module.exports = NotesView;
